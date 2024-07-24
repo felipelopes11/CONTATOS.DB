@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Contatos</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-info">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Empresa</th>
+        <th>Email</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contato in contatos %}
+        <tr>
+          <td>{{ contato['id'] }}</td>
+          <td>{{ contato['nome'] }}</td>
+          <td>{{ contato['telefone'] }}</td>
+          <td>{{ contato['empresa'] }}</td>
+          <td>{{ contato['email'] }}</td>
+          <td>
+            <a href="{{ url_for('editar_contato', id=contato['id']) }}" class="btn btn-warning">Editar</a>
+            <a href="{{ url_for('excluir_contato_route', id=contato['id']) }}" class="btn btn-danger">Excluir</a>
+            <a href="{{ url_for('enviar_mensagem', id=contato['id']) }}" class="btn btn-primary">Enviar mensagem</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  <div class="text-center">
+    <a href="{{ url_for('adicionar_contato') }}" class="btn btn-primary">Adicionar Contato</a>
+  </div>
+{% endblock %}

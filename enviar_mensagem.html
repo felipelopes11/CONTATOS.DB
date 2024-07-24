@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Enviar Mensagem</h2>
+
+  <form method="POST" action="{{ url_for('enviar_mensagem', id=contato['id']) }}">
+    <div class="form-group">
+      <label for="mensagem">Mensagem:</label>
+      <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+{% endblock %}

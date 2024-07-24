@@ -1,0 +1,27 @@
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .alert-info {
+    margin-top: 20px;
+  }
+  
+  .btn-editar {
+    background-color: yellow;
+    color: #fff;
+  }
+  
+  .btn-excluir {
+    background-color: red;
+    color: #fff;
+  }
+  
+  .btn-enviar-mensagem {
+    background-color: blue;
+    color: #fff;
+  }
+  

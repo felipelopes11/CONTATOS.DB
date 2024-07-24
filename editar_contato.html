@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Editar Contato</h2>
+
+  <form method="post" action="{{ url_for('editar_contato', id=contato['id']) }}">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" class="form-control" id="nome" name="nome" value="{{ contato['nome'] }}" required>
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone:</label>
+      <input type="text" class="form-control" id="telefone" name="telefone" value="{{ contato['telefone'] }}" required>
+    </div>
+    <div class="form-group">
+      <label for="empresa">Empresa:</label>
+      <input type="text" class="form-control" id="empresa" name="empresa" value="{{ contato['empresa'] }}" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" value="{{ contato['email'] }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+    <a href="{{ url_for('agenda_contatos') }}" class="btn btn-secondary">Cancelar</a>
+  </form>
+{% endblock %}
